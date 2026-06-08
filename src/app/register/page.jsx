@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { FaEnvelope, FaGoogle, FaLock, FaPhone, FaUser } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 
 const page = () => {
    return (
@@ -17,7 +18,7 @@ const page = () => {
           type="button"
           className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-200 hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98]"
         >
-          <FaGoogle className="text-red-500 text-lg" />
+       <FcGoogle className="text-red-500 text-lg" />
           <span>Sign up with Google</span>
         </button>
 
