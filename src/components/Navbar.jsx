@@ -16,9 +16,9 @@ const Navbar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li> <Link href={'/'} classname={pathname==='/'?'text-primary font-bold':''}>Home</Link> </li>
-        <li> <Link href={'/product'} classname={pathname==='/product'?'text-primary font-bold':''}>Product</Link> </li>
-        <li><Link href={'/contact'} classname={pathname==='/'?'text-primary font-bold':''}>Contact</Link></li>
+        <li> <Link href={'/'} className={pathname==='/'?'text-primary font-bold':''}>Home</Link> </li>
+        <li> <Link href={'/product'} className={pathname==='/product'?'text-primary font-bold':''}>Product</Link> </li>
+        <li><Link href={'/contact'} className={pathname==='/contact'?'text-primary font-bold':''}>Contact</Link></li>
       </ul>
     </div>
     <div className="m-1 flex gap-2 items-center">    <Image src={logo} alt="Logo" width={68} /> 
