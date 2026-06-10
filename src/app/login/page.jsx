@@ -50,7 +50,7 @@ const page = () => {
                   autoComplete="email"
                   required
                   className="block w-full rounded-xl border border-slate-200 bg-slate-50/50 py-3 pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 transition-all duration-200 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
-                  placeholder="name@example.com"
+                  placeholder="abc@gmail.com"
                 />
               </div>
             </div>
@@ -106,8 +106,8 @@ const page = () => {
         {/* Footer */}
         <p className="text-center text-sm text-slate-600">
           Don't have an account?{' '}
-          <a href="#" className="font-semibold text-blue-600 hover:text-blue-500 transition-colors">
-            Sign up for free
+          <a href="/register" className="font-semibold text-blue-600 hover:text-blue-500 transition-colors">
+           Register
           </a>
         </p>
       </div>
