@@ -1,5 +1,6 @@
 import Banar from '@/components/Banar';
 import Featured from '@/components/Featured';
+import WhyChoose from '@/components/WhyChoose';
 import React from 'react';
 
 const page = () => {
@@ -7,7 +8,8 @@ const page = () => {
         <div className=' bg-gradient-to-r from-[#bcc0c7] to-[#c3cee0]  p-5 rounded-lg '> 
            
        <Banar></Banar>  
-      <Featured></Featured>
+      <Featured></Featured> 
+      <WhyChoose></WhyChoose>
 
         </div>
     );

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 async function Getproduct() { 
@@ -34,7 +35,7 @@ const Featured = async () => {
         key={pro._id}
         className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 flex flex-col"
       >
-        {/* Image */}
+       
         <div className="relative h-60 overflow-hidden">
           <Image
             src={pro.image}
@@ -91,6 +92,12 @@ const Featured = async () => {
       </div>
     );
   })}
+</div> 
+
+<div className="mt-12 text-center">
+  <Link href={'/product'} className="btn btn-outline btn-primary"  >
+    View All Products
+  </Link>
 </div>
     </section>
   );
