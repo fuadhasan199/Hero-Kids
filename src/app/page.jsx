@@ -1,4 +1,5 @@
 import Banar from '@/components/Banar';
+import CustomerReview from '@/components/CustomerReview';
 import Featured from '@/components/Featured';
 import WhyChoose from '@/components/WhyChoose';
 import React from 'react';
@@ -10,6 +11,7 @@ const page = () => {
        <Banar></Banar>  
       <Featured></Featured> 
       <WhyChoose></WhyChoose>
+      <CustomerReview></CustomerReview>
 
         </div>
     );
