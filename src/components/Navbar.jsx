@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 const Navbar = () => {
   const pathname=usePathname()
     return (
-      <div className="navbar  text-black p-5 rounded-lg top-0 z-10 bg-gray-200">
+      <div className="navbar sticky shadow-md  text-black p-5 rounded-lg top-0 z-[999] bg-gray-200">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -15,7 +15,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-content rounded-box z-1 mt-3 w-52 p-2 shadow-md">
         <li> <Link href={'/'} className={pathname==='/'?'text-primary font-bold':''}>Home</Link> </li>
         <li> <Link href={'/product'} className={pathname==='/product'?'text-primary font-bold':''}>Product</Link> </li>
         <li><Link href={'/contact'} className={pathname==='/contact'?'text-primary font-bold':''}>Contact</Link></li>
