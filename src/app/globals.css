@@ -5,3 +5,8 @@
      color:black;
      
 }
+
+body {
+  
+  font-family: var(--font-hind), var(--font-fredoka), sans-serif;
+}
