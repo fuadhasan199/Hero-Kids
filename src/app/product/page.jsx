@@ -76,7 +76,7 @@ const products=await GetProducts()
 
 <p className='mt-12 font-bold text-2xl ml-5'>Total Products: {products.length}</p>
 
- 
+ {/* product cards */}
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
          {products?.map((pro) => {
     const discount = pro.discount || pro.percentage || 0;
@@ -148,6 +148,8 @@ const products=await GetProducts()
     );
   })}
 </div> 
+
+
 
 
 
