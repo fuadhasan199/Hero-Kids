@@ -12,7 +12,10 @@ export async function GET(request) {
       let query={}
 
       if(search){
-           query.title={$regex:search,$options:'i'}
+           query.$or=[
+             {title:{$regex:search,$options:'i'}},
+             {bangla:{$regex:search,$options:'i'}}
+           ]
       }
 
      
