@@ -21,9 +21,9 @@ const Navbar = () => {
         <li><Link href={'/contact'} className={pathname==='/contact'?'text-primary font-bold':''}>Contact</Link></li>
       </ul>
     </div>
-    <div className="m-1 flex gap-2 items-center">    <Image src={logo} alt="Logo" width={68} /> 
+    <Link href={'/'} className="m-1 flex gap-2 items-center"  >    <Image src={logo} alt="Logo" width={68} priority /> 
      <p className='font-bold text-2xl'>Hero <span className='text-orange-400'>kids</span></p>
-     </div>
+     </Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 items-center gap-5">

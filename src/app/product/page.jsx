@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const Page = () => { 
@@ -89,7 +90,7 @@ const Page = () => {
       <p className='mt-12 font-bold text-2xl ml-5'>Total Products: {products?.length || 0}</p>
 
       {/* product cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {products?.map((pro) => {
           const discount = pro.discount || pro.percentage || 0;
           const oldPrice = discount > 0 ? Math.round(pro.price / (1 - discount / 100)) : pro.price;
@@ -143,9 +144,9 @@ const Page = () => {
                 </div>
 
                 <div className="mt-auto pt-5 flex gap-2">
-                  <button className="btn btn-outline btn-primary flex-1">
+                  <Link href={`/product/${pro._id}`} className="btn btn-outline btn-primary flex-1">
                     View Details
-                  </button>
+                  </Link>
 
                   <button className="btn btn-primary flex-1 text-white">
                     Add to Cart

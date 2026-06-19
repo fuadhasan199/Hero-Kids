@@ -40,8 +40,9 @@ const Featured = async () => {
           <Image
             src={pro.image}
             alt={pro.title}
-            width={500}
-            height={500}
+            width={500} 
+           height={500}
+            priority
             className="w-full h-full object-cover hover:scale-105 transition duration-300"
           />
 
@@ -80,9 +81,9 @@ const Featured = async () => {
           </div>
 
           <div className="mt-auto pt-5 flex gap-2">
-            <button className="btn btn-outline btn-primary flex-1">
+            <Link href={`/product/${pro._id}`} className="btn btn-outline btn-primary flex-1">
               View Details
-            </button>
+            </Link>
 
             <button className="btn btn-primary flex-1 text-white">
               Add to Cart
