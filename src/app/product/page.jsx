@@ -1,26 +1,32 @@
 "use client"
+import ProductSkeletion from '@/components/skeletion/ProductSkeletion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 const Page = () => { 
   
-  const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState(""); 
+  const [products, setProducts] = useState([])
+  const [search, setSearch] = useState("")
+  const [sort, setSort] = useState("")
+  const [isLoading,setIsLoading]=useState(true)
 
   
   useEffect(() => {
     const GetProducts = async () => {
-      try {
+      try { 
+        setIsLoading(true)
         const res = await fetch(`http://localhost:3000/api/products?search=${search}&sort=${sort}`, { cache: "no-cache" }); 
         const data = await res.json()
         setProducts(data)
       } catch (error) {
         console.error("Error fetching products:", error);
       }
+      finally{
+        setIsLoading(false)
+      }
     }
-    GetProducts();
+    GetProducts()
   }, [search, sort]); 
 
   return (
@@ -91,7 +97,12 @@ const Page = () => {
 
       {/* product cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {products?.map((pro) => {
+        {isLoading ? (
+          Array.from({ length: 6 }).map((_, index) => (
+            <ProductSkeletion key={index} />
+          ))
+        ) : (
+          products?.map((pro) => {
           const discount = pro.discount || pro.percentage || 0;
           const oldPrice = discount > 0 ? Math.round(pro.price / (1 - discount / 100)) : pro.price;
 
@@ -155,7 +166,8 @@ const Page = () => {
               </div>
             </div>
           );
-        })}
+        })
+        )}
       </div> 
 
     </div>
