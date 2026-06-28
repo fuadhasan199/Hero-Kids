@@ -3,12 +3,12 @@ import Link from 'next/link';
 import React from 'react';
 
 async function Getproduct() { 
-  const res = await fetch(`http://localhost:3000/api/products`, { cache: 'no-store' });
+  const res = await fetch(`http://localhost:3000/api/products`, { cache: 'no-store' })
   return res.json();
 }
 
 const Featured = async () => { 
-  const products = await Getproduct(); 
+  const products = await Getproduct() 
   
   return (
     <section className="my-16 px-4 max-w-7xl mx-auto"> 
@@ -24,7 +24,7 @@ const Featured = async () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
          {products?.slice(0, 6).map((pro) => {
-    const discount = pro.discount || pro.percentage || 0;
+    const discount = pro.discount || pro.percentage || 0 
     const oldPrice =
       discount > 0
         ? Math.round(pro.price / (1 - discount / 100))

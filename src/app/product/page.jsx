@@ -4,7 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-const Page = () => { 
+
+const Product = () => { 
+  
   
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState("")
@@ -29,8 +31,11 @@ const Page = () => {
     GetProducts()
   }, [search, sort]); 
 
+  
+
   return (
-    <div className='bg-gradient-to-r from-[#bcc0c7] to-[#c3cee0] p-5'>
+    <div className='bg-gradient-to-r from-[#bcc0c7] to-[#c3cee0] p-5'> 
+     
 
     
       <div className="text-center space-y-2 mb-4 py-7 rounded-[40px]">
@@ -114,6 +119,7 @@ const Page = () => {
               <div className="relative h-55 overflow-hidden">
                 <Image
                   src={pro.image}
+                  loading="lazy"
                   alt={pro.title}
                   width={450}
                   height={450}
@@ -174,4 +180,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Product;

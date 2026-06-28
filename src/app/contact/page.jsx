@@ -2,13 +2,16 @@
 
 import React, { useState } from 'react';
 
+
+
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setStatus('loading');
+    e.preventDefault()
+    setStatus('loading')
 
     
     setTimeout(() => {
