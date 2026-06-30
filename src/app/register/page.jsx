@@ -3,7 +3,23 @@ import React from 'react';
 import { FaEnvelope, FaGoogle, FaLock, FaPhone, FaUser } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
-const page = () => {
+const page = () => { 
+
+
+
+
+const handleRegister=async(e)=>{
+   e.preventDefault() 
+   
+
+
+
+}
+
+
+
+
+
    return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
@@ -32,7 +48,7 @@ const page = () => {
         </div>
 
         {/* Form */}
-        <form className="mt-8 space-y-5" onSubmit={(e) => e.preventDefault()}>
+        <form className="mt-8 space-y-5" onSubmit={handleRegister}>
           <div className="space-y-4">
             {/* Full Name Field */}
             <div>

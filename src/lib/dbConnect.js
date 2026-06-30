@@ -3,7 +3,8 @@ const uri =process.env.Mongo_Uri
 const dbName=process.env.db_name 
 
 const Collection={
-      PRODUCTS:'products'
+      PRODUCTS:'products',
+      USERS:'users'
 }
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version

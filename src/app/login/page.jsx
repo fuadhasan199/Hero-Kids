@@ -3,6 +3,7 @@ import React from 'react';
 import { FaEnvelope, FaGoogle, FaLock } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
+
 const page = () => {
   return (
     <div className="flex min-h-screen items-center justify-center ``bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-12 sm:px-6 lg:px-8">

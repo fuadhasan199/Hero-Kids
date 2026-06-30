@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { IoMdArrowBack } from 'react-icons/io';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -12,20 +13,22 @@ const ProductDetailsPage = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
 
- // আপনার useEffect-এর ভেতরের অংশটুকু এভাবে পরিবর্তন করুন:
+
+
+   const router=useRouter()
 useEffect(() => {
   const fetchSingleProduct = async () => {
     try {
-      setLoading(true);
-      // Relative path ব্যবহার করায় এটি লোকাল ও লাইভ উভয় সার্ভারেই কাজ করবে
-      const res = await fetch(`/api/products/${id}`);
+      setLoading(true)
+     
+      const res = await fetch(`/api/products/${id}`)
       
       if (!res.ok) {
         setProduct({ error: true });
         return;
       }
 
-      const data = await res.json();
+      const data = await res.json()
       setProduct(data);
     } catch (error) {
       console.error("Error fetching single product:", error);
@@ -36,7 +39,7 @@ useEffect(() => {
   };
 
   if (id) fetchSingleProduct();
-}, [id]);
+}, [id])
 
   if (loading) {
     return (
@@ -45,7 +48,8 @@ useEffect(() => {
         <p className="text-slate-500 font-bold animate-pulse">খেলনার জাদুকরী বাক্সটি খোলা হচ্ছে... 🧸</p>
       </div>
     );
-  }
+  } 
+ 
 
   if (!product || product.error) {
     return (
@@ -59,7 +63,7 @@ useEffect(() => {
     );
   }
 
-  // ডিসকাউন্ট এবং পুরনো প্রাইস ক্যালকুলেশন
+ 
   const discount = product.discount || 0;
   const oldPrice = discount > 0 ? Math.round(product.price / (1 - discount / 100)) : product.price;
 
@@ -68,12 +72,12 @@ useEffect(() => {
       <div className="max-w-6xl mx-auto bg-white rounded-[32px] shadow-xl overflow-hidden border border-slate-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 sm:p-10">
           
-          {/* 📸 বাম পাশ: প্রিমিয়াম ইমেজ সেকশন */}
-         {/* 📸 বাম পাশ: প্রিমিয়াম ইমেজ সেকশন */}
+         
 <div className="space-y-4">
+   <button onClick={()=>router.back()}  className='btn btn-primary p-5 rounded-xl'>Back <IoMdArrowBack size={19} className='text-md mt-1 ' /> </button>
   <div className="relative h-[350px] sm:h-[450px] w-full rounded-2xl overflow-hidden bg-slate-50 border border-slate-100 group">
     <Image 
-      // 🌟 এখানে চেক করা হচ্ছে: ইমেজ যদি ডাটাবেজে খালি বা missing থাকে, তবে একটা ডিফল্ট কিউট প্লেসহোল্ডার ছবি দেখাবে
+     
       src={product.image && product.image.trim() !== "" ? product.image : "https://images.unsplash.com/photo-1532330384785-f558023194cd?q=80&w=600"} 
       alt={product.title || "Hero Kids Toy"} 
       fill
@@ -88,7 +92,7 @@ useEffect(() => {
   </div>
 </div>
 
-          {/* 📝 ডান পাশ: আকর্ষণীয় প্রোডাক্ট ইনফো */}
+      
           <div className="flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               {/* ব্যাজ */}
@@ -111,7 +115,7 @@ useEffect(() => {
                 </p>
               </div>
 
-              {/* রেটিং এবং সেলস কাউন্ট */}
+            
               <div className="flex items-center gap-4 bg-slate-50 p-3 rounded-xl border border-slate-100 w-fit">
                 <div className="flex items-center gap-1 text-orange-500 font-black">
                   ⭐ <span className="text-slate-800">{product.ratings || "4.5"}</span>
