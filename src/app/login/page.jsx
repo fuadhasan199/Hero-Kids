@@ -1,10 +1,15 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaEnvelope, FaGoogle, FaLock } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
 
 const page = () => {
+  const router=useRouter() 
+
+
+  
   return (
     <div className="flex min-h-screen items-center justify-center ``bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">

@@ -37,7 +37,7 @@ export const postUser=async(payload)=>{
   if(user.acknowledged){
       return{
          ...user,
-         insertId:user.insertId.tostring()
+         insertId:user.insertedId.toString()
       }
   }
 

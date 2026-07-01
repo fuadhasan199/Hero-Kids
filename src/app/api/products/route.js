@@ -19,8 +19,8 @@ export async function GET(request) {
            ]
       }
 
-     
-     const productsCollection=await dbConnect('products') 
+      const db=await dbConnect()
+     const productsCollection=db.collection('products')
       
      let sortQuery={}
      if(sort==="low-to-high"){
@@ -43,6 +43,10 @@ export async function GET(request) {
      } 
      catch(error){
           console.error("Database error:", error.message)
+          return new Response(JSON.stringify([]), { 
+        status: 500,
+        headers: {"Content-Type":"application/json"}
+     });
      }
 } 
 

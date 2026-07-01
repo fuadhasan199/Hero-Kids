@@ -1,7 +1,7 @@
 import { dbConnect } from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 
-export async function GET(request, { params }) {
+export async function GET({ params }) {
   try {
    
     const { id } = await params; 
@@ -14,8 +14,8 @@ export async function GET(request, { params }) {
       });
     }
 
-   
-    const productsCollection = await dbConnect('products'); 
+     const db =await dbConnect()
+    const productsCollection = db.collection('products'); 
     
    
     const product = await productsCollection.findOne({ _id: new ObjectId(id) }); 
