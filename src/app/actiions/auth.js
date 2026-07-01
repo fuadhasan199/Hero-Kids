@@ -12,7 +12,7 @@ export const postUser=async(payload)=>{
     //  check user exist or not 
 
     const db=await dbConnect()
-    const isExist=await db.Collection("users").findOne({email})
+    const isExist=await db.collection("users").findOne({email})
     if(isExist){
          return {error:"User already exist"}
     } 
@@ -33,11 +33,11 @@ export const postUser=async(payload)=>{
 
 
     //  insert user
- const user=await db.Collection("users").insertOne(newUser) 
+ const user=await db.collection("users").insertOne(newUser) 
   if(user.acknowledged){
       return{
          ...user,
-         insertId:user.insertId.toString()
+         insertId:user.insertId.tostring()
       }
   }
 

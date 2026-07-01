@@ -1,23 +1,46 @@
 'use client'
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaEnvelope, FaGoogle, FaLock, FaPhone, FaUser } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
+import { GiReturnArrow } from 'react-icons/gi';
+import { postUser } from '../actiions/auth';
 
-const page = () => { 
+const Registerpage = () => { 
 
-
+const router=useRouter()
 
 
 const handleRegister=async(e)=>{
    e.preventDefault() 
-   
 
+   const formData=new FormData(e.target) 
+   const name=formData.get("name")
+   const mobile=formData.get("mobile")
+   const email=formData.get("email")
+   const password=formData.get("password") 
+   const payload={name,mobile,email,password} 
+   try{
+      const res=await postUser(payload) 
+      if(res?.error){
+         alert(res.error) 
+         return
+      }  
 
-
-}
-
-
-
+      if (res?.acknowledged) {
+        alert("Registration Successful! Now you can sign in.");
+        e.target.reset()
+        router.push('/')
+        
+      } else {
+        alert("Something went wrong!");
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
+      alert("An unexpected error occurred.");
+    }
+        
+   }
 
 
    return (
@@ -173,7 +196,9 @@ const handleRegister=async(e)=>{
         </p>
       </div>
     </div>
-  );
-};
+  ); 
+  }
 
-export default page;
+
+
+export default Registerpage;

@@ -1,3 +1,5 @@
+import Credentials from "next-auth/providers/credentials"
+
 export const authOptions = {
   
   providers: [
@@ -5,11 +7,11 @@ export const authOptions = {
     
     name: 'Credentials',
  
-    credentials: {
-      username: { label: "Username", type: "text", placeholder: "jsmith" },
+    Credentials: {
+      email: { label: "Email", type: "email", placeholder: "example@mail.com" },
       password: { label: "Password", type: "password" }
     },
-    async authorize(credentials, req) {
+    async authorize(credentials) {
     
       const res = await fetch("/your/endpoint", {
         method: 'POST', 
@@ -28,4 +30,6 @@ export const authOptions = {
   })
     
   ],
+  
+     secret:process.env.NEXTAUTH_SECRET,
 }

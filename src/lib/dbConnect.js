@@ -15,7 +15,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 }); 
-export  const dbConnect=async (cname)=>{ 
-    return  client.db(dbName).collection(cname)
+export  const dbConnect=async ()=>{ 
+    return  client.db(dbName)
       
 }
