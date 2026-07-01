@@ -9,7 +9,7 @@ async function Getproduct() {
 
 const Featured = async () => { 
   const products = await Getproduct() 
-  console.log(products)
+  
   
   return (
     <section className="my-16 px-4 max-w-7xl mx-auto"> 

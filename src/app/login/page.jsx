@@ -9,7 +9,7 @@ const page = () => {
   const router=useRouter() 
 
 
-  
+
   return (
     <div className="flex min-h-screen items-center justify-center ``bg-gradient-to-br from-slate-50 to-slate-100 px-4 py-12 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
@@ -111,7 +111,7 @@ const page = () => {
 
         {/* Footer */}
         <p className="text-center text-sm text-slate-600">
-          Don't have an account?{' '}
+          Don`t have an account?{' '}
           <a href="/register" className="font-semibold text-blue-600 hover:text-blue-500 transition-colors">
            Register
           </a>

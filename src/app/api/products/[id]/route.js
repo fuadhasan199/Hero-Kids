@@ -1,7 +1,7 @@
 import { dbConnect } from "@/lib/dbConnect";
 import { ObjectId } from "mongodb";
 
-export async function GET({ params }) {
+export async function GET(request,{ params }) {
   try {
    
     const { id } = await params; 
