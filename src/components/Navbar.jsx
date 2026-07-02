@@ -4,8 +4,11 @@ import Link from 'next/link';
 import React from 'react';
 import logo from '../../public/assets/logo.png'
 import { usePathname } from 'next/navigation';
+import { signOut, useSession } from 'next-auth/react';
 const Navbar = () => {
   const pathname=usePathname()
+  const {data:session}=useSession() 
+ 
     return (
       <div className="navbar sticky shadow-md  text-black p-5 rounded-lg top-0 z-[999] bg-gray-200">
   <div className="navbar-start">
@@ -33,8 +36,20 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end "> 
-    <span className='btn btn-primary'><Link href={'/login'}>Login </Link> </span>
-    
+   {session ? (
+          <>
+           <button 
+              onClick={() => signOut({ callbackUrl: '/' })} 
+              className='btn btn-error btn-outline text-white'
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link href={'/login'} className='btn btn-primary text-white'>
+            Login
+          </Link>
+        )}
   </div>
 </div>
     );

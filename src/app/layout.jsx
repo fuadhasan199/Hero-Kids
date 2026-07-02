@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";  
 import Footer from "@/components/Footer";   
 
+
+import AuthProvider from "@/components/AuthProvider";
+
 const geistSans = Geist({ 
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -40,9 +43,15 @@ export default function RootLayout({ children }) {
       className={`${hindSiliguri.variable} ${fredoka.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col  "> 
-         <Navbar></Navbar> 
-          <main className="flex-1"> {children} </main>
-         <Footer></Footer>
+      
+        <AuthProvider>
+
+       <Navbar></Navbar> 
+      <main className="flex-1"> {children} </main>
+      <Footer></Footer>
+      </AuthProvider>
+     
+         
          
          
 

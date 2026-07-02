@@ -1,12 +1,45 @@
 'use client'
+
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaEnvelope, FaGoogle, FaLock } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
 
-const page = () => {
-  const router=useRouter() 
+const LoginPage = () => {
+ const router=useRouter() 
+  const handleLogin=async(e)=>{
+     e.preventDefault()
+    
+     const formData=new FormData(e.target) 
+     const email=formData.get("email")
+     const password=formData.get("password")
+
+    try{
+        const res=await signIn("credentials",{
+            email,
+            password,
+            redirect:false
+        })
+        if(res?.error){
+            alert(res.error)
+            return
+        }
+        if(res?.ok){
+           alert("Login Success")
+           router.push("/")
+        }
+    } 
+    catch(error){
+       console.error("Login failed:",error) 
+        alert(`NextAuth error: ${error.message || "An unexpected error occurred."}`)
+    }
+
+
+
+
+  }
 
 
 
@@ -38,7 +71,7 @@ const page = () => {
         </div>
 
         {/* Form */}
-        <form className="mt-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
+        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <div className="space-y-4">
             {/* Email Field */}
             <div>
@@ -121,4 +154,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;
